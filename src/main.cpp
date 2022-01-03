@@ -6,16 +6,20 @@
  * https://github.com/SignalK/SensESP/pages/tutorials/bmp280
  * 
  * Here's the sensor: https://www.adafruit.com/product/2651
- * 
+ *
+ * NOTE: Use this as a template for almost any other Arduino-compatible
+ * physical sensor.
 */
 
 #include <Arduino.h>
-#include <Adafruit_BMP280.h>
-#include <Wire.h>
 #include "sensesp_app.h"
 #include "sensesp_app_builder.h"
 #include "sensesp/sensors/sensor.h"
 #include "sensesp/signalk/signalk_output.h"
+
+// These are specific to this example
+#include <Adafruit_BMP280.h>
+#include <Wire.h>
 
 using namespace sensesp;
 
@@ -23,11 +27,15 @@ using namespace sensesp;
 // must instantiate the "app" object.
 reactesp::ReactESP app;
 
+// (Specific to the BMP280, and I2C. Replace this with similar code to create and instance
+// of whatever sensor you may be using in your project.)
 // Create an instance of the sensor using its I2C interface.
 // See the Arduino Library example to see how to use SPI.
 // https://github.com/adafruit/Adafruit_BMP280_Library/blob/master/examples/bmp280test/bmp280test.ino
 Adafruit_BMP280 bmp280;
 
+// (Replace this with whatever function you need to read whatever value you want
+// to  read from any other sensor you're using in your project.)
 // Define the function that will be called every time we want
 // an updated temperature value from the sensor. The sensor reads degrees
 // Celsius, but all temps in Signal K are in Kelvin, so add 273.15.
@@ -68,5 +76,7 @@ void setup() {
 
 // loop simply calls `app.tick()` which will then execute all reactions as needed
 void loop() {
+  
   app.tick();
+  
 }
