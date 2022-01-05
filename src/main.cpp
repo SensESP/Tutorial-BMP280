@@ -18,7 +18,7 @@
 #include "sensesp/sensors/sensor.h"
 #include "sensesp/signalk/signalk_output.h"
 
-// Sensor-specific #includes go here:
+// Sensor-specific #includes:
 #include <Adafruit_BMP280.h>
 #include <Wire.h>
 
