@@ -17,7 +17,8 @@
 #include "sensesp/sensors/sensor.h"
 #include "sensesp/signalk/signalk_output.h"
 
-// These are specific to this example
+// These are specific to this sensor. (Put your sensor-specific
+// #includes here instead.)
 #include <Adafruit_BMP280.h>
 #include <Wire.h>
 
@@ -27,15 +28,13 @@ using namespace sensesp;
 // must instantiate the "app" object.
 reactesp::ReactESP app;
 
-// (Specific to the BMP280, and I2C. Replace this with similar code to create and instance
+// (Specific to the BMP280, and I2C. Replace this with similar code to create an instance
 // of whatever sensor you may be using in your project.)
 // Create an instance of the sensor using its I2C interface.
-// See the Arduino Library example to see how to use SPI.
-// https://github.com/adafruit/Adafruit_BMP280_Library/blob/master/examples/bmp280test/bmp280test.ino
 Adafruit_BMP280 bmp280;
 
 // (Replace this with whatever function you need to read whatever value you want
-// to  read from any other sensor you're using in your project.)
+// to read from any other sensor you're using in your project.)
 // Define the function that will be called every time we want
 // an updated temperature value from the sensor. The sensor reads degrees
 // Celsius, but all temps in Signal K are in Kelvin, so add 273.15.
@@ -54,12 +53,14 @@ void setup() {
   sensesp_app = builder.get_app();
 
   // Initialize the BMP280 using the default address
+  // (Do whatever is required to "start" your project's sensor here)
   bmp280.begin();
 
   // Read the sensor every 2 seconds
   unsigned int read_interval = 2000;
 
   // Create a RepeatSensor with float output that reads the temperature
+  // using the function defined above.
   auto* engine_room_temp =
       new RepeatSensor<float>(read_interval, read_temp_callback);
 
