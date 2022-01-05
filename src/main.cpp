@@ -11,14 +11,14 @@
  * physical sensor.
 */
 
+// Boilerplate #includes:
 #include <Arduino.h>
 #include "sensesp_app.h"
 #include "sensesp_app_builder.h"
 #include "sensesp/sensors/sensor.h"
 #include "sensesp/signalk/signalk_output.h"
 
-// These are specific to this sensor. (Put your sensor-specific
-// #includes here instead.)
+// Sensor-specific #includes go here:
 #include <Adafruit_BMP280.h>
 #include <Wire.h>
 
