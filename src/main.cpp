@@ -52,8 +52,8 @@ void setup() {
   SensESPAppBuilder builder;
   sensesp_app = builder.get_app();
 
-  // Initialize the BMP280 using the default address
   // (Do whatever is required to "start" your project's sensor here)
+  // Initialize the BMP280 using the default address
   bmp280.begin();
 
   // Read the sensor every 2 seconds
