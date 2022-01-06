@@ -73,7 +73,7 @@ void setup() {
   // Start the SensESP application running
   sensesp_app->start();
 
-} //setup
+}
 
 // loop simply calls `app.tick()` which will then execute all reactions as needed
 void loop() {
