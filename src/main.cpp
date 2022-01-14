@@ -12,15 +12,14 @@
 */
 
 // Boilerplate #includes:
-#include <Arduino.h>
-#include "sensesp_app.h"
 #include "sensesp_app_builder.h"
-#include "sensesp/sensors/sensor.h"
 #include "sensesp/signalk/signalk_output.h"
 
 // Sensor-specific #includes:
 #include <Adafruit_BMP280.h>
 #include <Wire.h>
+// For RepeatSensor:
+#include "sensesp/sensors/sensor.h"
 
 using namespace sensesp;
 
